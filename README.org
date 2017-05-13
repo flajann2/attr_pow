@@ -1,10 +1,11 @@
-* attr_pow                                                         :TOC_5_gh:
+* attr_pow - put POWer in your attributes!!!                       :TOC_5_gh:
    - [[#synopsis][Synopsis]]
    - [[#motivation][Motivation]]
    - [[#usage--documentation][Usage & Documentation]]
      - [[#hooks][Hooks]]
      - [[#clonability][Clonability]]
      - [[#queues][Queues]]
+   - [[#release-notes][Release Notes]]
    - [[#contributing-to-attr_pow][Contributing to attr_pow]]
    - [[#copyright][Copyright]]
 
@@ -49,8 +50,10 @@
     Defaultable attributes of neat attributes.
 
     If hooks: true is given, two hook functions are created:
-    - <sym>_add() -- add a hook
-    - <sym>_set() -- set a hook, overwriting all other hooks set or added.
+    - <sym>_add()
+      add a hook
+    - <sym>_set()
+      set a hook, overwriting all other hooks set or added.
     - <sym>_clear -- clear all hooks
     - <sym>_none? -- return true if no hooks are defined.
     - <sym>_one? -- return true if exactly one hook is defined.
@@ -65,10 +68,69 @@
     For *_hooks(), the hook function return an array of results
     from all the actual registered hooks called.
 
+    Example:
+    #+begin_src ruby
+      require 'attr_pow'
+      ...
+      class Foobar
+        attr_pow :hooker, hooks: true
+        ...
+        def johns &block
+          hooker_add &block
+        end
+        ...
+        def deliver_service stype
+          results = hooker_np_hooks(serve: stype)
+        end
+    #+end_src
+
 *** Clonability
+    Please see the documentation at [[https://github.com/flajann2/deep_dive][Deep Dive]]. Basically,
+    to mark your attributes as cloneable or not:
+    #+begin_src ruby
+      require 'attr_pow'
+      ...
+      class Foobar
+        attr_pow :foo, default: 20, cloneable: true
+        attr_pow :bar, default: "Hello World!", cloneable: false
+        ...
+    #+end_src
+
+    And so, in using Deep Dive to clone your objects, you can mark
+    so attributes to be cloned, were a copy will be made, or not to be,
+    where a reference to that object will be done instead.
+
+    Where this is useful is in the case of a complicated object 
+    composition where some of the objects may represent external
+    resources you would not want to clone, such as file handles 
+    and database objects. Or even references to "god" objects.
+
+    "god" objects are considered a bad practice, but sometimes
+    the need does arise. Or you may have inherited legacy code.
+    in either case,
+
 *** Queues
+    If you mark your attribute with queue: true, a QDing queue
+    will automatically be created. Please see [[https://github.com/flajann2/queue_ding][QueueDing]] for more
+    details.
+
+    Example:
+    #+begin_src ruby
+      require 'attr_pow'
+      ...
+      class Foobar
+        attr_pow :queit, queue: true
+        ...
+    #+end_src
+
+** Release Notes
+   | Version |       Date | Description                               |
+   |---------+------------+-------------------------------------------|
+   |   0.0.1 | 2017-05-13 | Initial Release, extraction from RubyNEAT |
 
 ** Contributing to attr_pow
+   I am always open to your input. Please raise issues on this project
+   on GitHub. If you wish to add power to attr_pow:
  
    - Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
    - Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
