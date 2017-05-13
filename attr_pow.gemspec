@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib".freeze]
   s.authors = ["Fred Mitchell".freeze]
   s.date = "2017-05-13"
-  s.description = "TODO: longer description of your gem".freeze
+  s.description = "attr_pow gives you smart attributes. You may sepecify defaults,\n   use attr_pow for hooks, and even define clonability and queuability.".freeze
   s.email = "fred.mitchell@gmx.de".freeze
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -28,6 +28,8 @@ Gem::Specification.new do |s|
     "LICENSE.txt",
     "README.org",
     "Rakefile",
+    "attr_pow.gemspec",
+    "examples/hooks.rb",
     "lib/attr_pow.rb",
     "spec/attr_pow_spec.rb",
     "spec/spec_helper.rb"
@@ -35,7 +37,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/flajann2/attr_pow".freeze
   s.licenses = ["MIT".freeze]
   s.rubygems_version = "2.6.11".freeze
-  s.summary = "TODO: one-line summary of your gem".freeze
+  s.summary = "smart attributes -- defaults, hooks, cloneability, queues! POW!!!".freeze
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
