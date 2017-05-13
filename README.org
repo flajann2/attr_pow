@@ -1,7 +1,72 @@
+* attr_pow                                                         :TOC_5_gh:
+   - [[#synopsis][Synopsis]]
+   - [[#motivation][Motivation]]
+   - [[#usage--documentation][Usage & Documentation]]
+     - [[#hooks][Hooks]]
+     - [[#clonability][Clonability]]
+     - [[#queues][Queues]]
+   - [[#contributing-to-attr_pow][Contributing to attr_pow]]
+   - [[#copyright][Copyright]]
 
-* attr_pow
+** Synopsis
+   attr_pow gives you POWerful attributes. You may sepecify defaults,
+   use attr_pow for hooks, and even define clonability and queuability.
+   Cloability works in concert with deep_dive.
+   Queuability works in concert with queue_ding.
 
-  Description goes here.
+** Motivation
+   attr_pow is directly derived from the internal attr_neat
+   attribute system we created for RubyNEAT. I've been meaning
+   to extract this as a seperate gem for a long time.
+
+** Usage & Documentation
+   At its simplest, you may use attr_pow almost the same
+   as you use attr_accessor, with the understanding you only#
+   specify one attribute per line, for example,
+   #+begin_src ruby
+     require 'attr_pow'
+     ...
+     class Foobar
+       attr_pow :foo
+       attr_pow :bar
+       ...
+   #+end_src
+
+   And now, to eliminate the typical bolierplate code you normally
+   would have to do to initalize your attributes,
+   #+begin_src ruby
+     require 'attr_pow'
+     ...
+     class Foobar
+       attr_pow :foo, default: 20
+       attr_pow :bar, default: "Hello World!"
+       ...
+   #+end_src
+
+   You made need nothing more than that, but you can go further.
+
+*** Hooks
+    Defaultable attributes of neat attributes.
+
+    If hooks: true is given, two hook functions are created:
+    # <sym>_add() -- add a hook
+    # <sym>_set() -- set a hook, overwriting all other hooks set or added.
+    # <sym>_clear -- clear all hooks
+    # <sym>_none? -- return true if no hooks are defined.
+    # <sym>_one? -- return true if exactly one hook is defined.
+    # <sym>_hook() -- for passing unnamed parameters to a singular hook.
+    # <sym>_np_hook() -- for passing unnamed parameters to a singular hook.
+    # <sym>_hook_itself() -- for getting the proc reference to the hook.
+    # <sym>_hooks() -- for passing unnamed parameters.
+    # <sym>_np_hooks() -- for passing a named parameter list.
+  
+    For *_hook(), the function returns the single result.
+
+    For *_hooks(), the hook function return an array of results
+    from all the actual registered hooks called.
+
+*** Clonability
+*** Queues
 
 ** Contributing to attr_pow
  

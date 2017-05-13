@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 gem "semver2", "~> 3"
 gem "queue_ding", "~> 0"
+gem "deep_dive", "~> 0"
 
 group :development do
   gem "awesome_print", "~> 1"

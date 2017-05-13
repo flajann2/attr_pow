@@ -1,3 +1,5 @@
+
+
 class AttrPowException < Exception ; end
 class Module
   # Defaultable attributes of neat attributes.

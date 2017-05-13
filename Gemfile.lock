@@ -10,6 +10,7 @@ GEM
     byebug (9.0.6)
     coderay (1.1.1)
     debug_inspector (0.0.3)
+    deep_dive (0.3.4)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.3)
@@ -114,6 +115,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print (~> 1)
   bundler (~> 1)
+  deep_dive (~> 0)
   juwelier (~> 2)
   pry (~> 0)
   pry-byebug (~> 3)
@@ -121,7 +123,7 @@ DEPENDENCIES
   pry-remote (~> 0)
   pry-rescue (~> 1)
   pry-stack_explorer (~> 0)
-  queue_ding
+  queue_ding (~> 0)
   rdoc (~> 3)
   rspec (~> 3)
   semver2 (~> 3)
