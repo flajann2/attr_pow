@@ -1,17 +1,15 @@
 source "https://rubygems.org"
-# Add dependencies required to use your gem here.
-# Example:
-#   gem "activesupport", ">= 2.3.5"
-gem "semver2", "~> 3"
 
-# Add dependencies to develop your gem here.
-# Include everything needed to run rake, tests, features, etc.
+gem "semver2", "~> 3"
+gem "queue_ding", "~> 0"
+
 group :development do
-  gem "rspec", "~> 3.5.0"
-  gem "yard", "~> 0.7"
-  gem "rdoc", "~> 3.12"
-  gem "bundler", "~> 1.0"
-  gem "juwelier", "~> 2.1.0"
+  gem "awesome_print", "~> 1"
+  gem "rspec", "~> 3"
+  gem "yard", "~> 0"
+  gem "rdoc", "~> 3"
+  gem "bundler", "~> 1"
+  gem "juwelier", "~> 2"
   gem "simplecov", ">= 0"
   gem "pry", "~> 0"
   gem "pry-byebug", "~> 3"
