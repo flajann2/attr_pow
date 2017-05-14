@@ -1,6 +1,7 @@
 * attr_pow - put POWer in your attributes!!!                       :TOC_5_gh:
    - [[#synopsis][Synopsis]]
    - [[#motivation][Motivation]]
+   - [[#installation][Installation]]
    - [[#usage--documentation][Usage & Documentation]]
      - [[#hooks][Hooks]]
      - [[#clonability][Clonability]]
@@ -19,6 +20,17 @@
    attr_pow is directly derived from the internal attr_neat
    attribute system we created for RubyNEAT. I've been meaning
    to extract this as a seperate gem for a long time.
+
+** Installation
+   From command line,
+   #+begin_src bash
+   gem install attr_pow
+   #+end_src
+
+   or from your Gemfile
+   #+begin_src ruby
+   gem 'attr_pow', '~> 0'
+   #+end_src
 
 ** Usage & Documentation
    At its simplest, you may use attr_pow almost the same
