@@ -4,17 +4,17 @@
    - [[#installation][Installation]]
    - [[#usage--documentation][Usage & Documentation]]
      - [[#hooks][Hooks]]
-     - [[#clonability][Clonability]]
+     - [[#cloneability][Cloneability]]
      - [[#queues][Queues]]
    - [[#release-notes][Release Notes]]
    - [[#contributing-to-attr_pow][Contributing to attr_pow]]
    - [[#copyright][Copyright]]
 
 ** Synopsis
-   attr_pow gives you POWerful attributes. You may sepecify defaults,
-   use attr_pow for hooks, and even define clonability and queuability.
-   Cloability works in concert with deep_dive.
-   Queuability works in concert with queue_ding.
+   attr_pow gives you POWerful attributes. You may specify defaults,
+   use attr_pow for hooks, and even define cloneability and queueability.
+   Cloneability works in concert with deep_dive.
+   Queueability works in concert with queue_ding.
 
 ** Motivation
    attr_pow is directly derived from the internal attr_neat
@@ -46,7 +46,7 @@
    #+end_src
 
    And now, to eliminate the typical bolierplate code you normally
-   would have to do to initalize your attributes,
+   would have to do to initialize your attributes,
    #+begin_src ruby
      require 'attr_pow'
      ...
@@ -59,7 +59,7 @@
    You made need nothing more than that, but you can go further.
 
 *** Hooks
-    Defaultable attributes of neat attributes.
+    Default values of neat attributes.
 
     If hooks: true is given, two hook functions are created:
     - <sym>_add()
@@ -86,35 +86,35 @@
       require 'pp'
       
       class Foobar
-        attr_pow :hooker, hooks: true
+        attr_pow :shopper, shops: true
         
-        def johns &block
-          hooker_add &block
+        def customers &block
+          shopper_add &block
         end
         
-        def deliver_service stype
-          results = hooker_hooks(stype)
+        def purchase stype
+          results = shopper_shops(stype)
         end
       end
 
       fb = Foobar.new
-      fb.johns do |stype|
-        puts "Bob: #{stype} received"
+      fb.customers do |stype|
+        puts "Bob: #{stype} bought"
         "bob_#{stype}"
       end
 
-      fb.johns do |stype|
-        puts "James: #{stype} received"
+      fb.customers do |stype|
+        puts "James: #{stype} bought"
         "james_#{stype}"
       end
 
-      pp fb.deliver_service :back_rub
-      pp fb.deliver_service :kiss      
+      pp fb.purchase :shirt
+      pp fb.purchase :pants      
     #+end_src
 
-    Find and run this example in [[./examples/hooks.rb][hooks.rb]]
+    Find and run this example in [[./examples/shops.rb][shops.rb]]
 
-*** Clonability
+*** Cloneability
     Please see the documentation at [[https://github.com/flajann2/deep_dive][Deep Dive]]. Basically,
     to mark your attributes as cloneable or not:
     #+begin_src ruby
@@ -137,7 +137,7 @@
 
     "god" objects are considered a bad practice, but sometimes
     the need does arise. Or you may have inherited legacy code.
-    in either case,
+    
 
 *** Queues
     If you mark your attribute with queue: true, a QDing queue
