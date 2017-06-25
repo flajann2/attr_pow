@@ -1,4 +1,7 @@
+require 'queue_ding'
+require 'deep_dive'
 
+include QueueDing
 
 class AttrPowException < Exception ; end
 class Module
@@ -26,7 +29,7 @@ class Module
                 hooks: false,
                 queue: false)
     svar = "@#{sym}"
-    
+
     # Guess what clonable should be.
     # This is meant to cover "90%" of the cases.
     cloneable = case
@@ -37,27 +40,27 @@ class Module
                 else
                   true
                 end if cloneable.nil?
-    
+
     # Sanity checks
     raise AttrPowException("Both hooks and queue cannot both be set for #{sym}.") if hooks and queue
     raise AttrPowException("Defaults cannot be defined for hooks and queues for #{sym}.") if (hooks or queue) and not default.nil?
-    
+
     if hooks
       default = []
       cloneable = true
       hook_setup sym
     end
-    
+
     if queue
       default = QDing.new
       cloneable = true
       queue_setup sym
     end
-    
+
     define_method("#{sym}=") do |v|
       instance_variable_set(svar, v)
     end unless hooks or queue
-    
+
     # TODO: Enhance this getter method for performance.
     define_method(sym) do
       instance_variable_set(svar,
@@ -66,30 +69,30 @@ class Module
                              : default))
     end
   end
-  
+
   private
   def hook_setup(sym)
     define_method("#{sym}_add") do |&hook|
       send(sym) << hook
     end
-    
+
     define_method("#{sym}_set") do |&hook|
       send(sym).clear
       send(sym) << hook
     end
-    
+
     define_method("#{sym}_clear") do
       send(sym).clear
     end
-    
+
     define_method("#{sym}_none?") do
       send(sym).empty?
     end
-    
+
     define_method("#{sym}_one?") do
       send(sym).size == 1
     end
-    
+
     # hooks with named parameters
     define_method("#{sym}_np_hooks") do | **hparams |
       send(sym).map{|funct| funct.(**hparams)}
@@ -114,7 +117,7 @@ class Module
       raise AttrPowException.new("#{sym}_hook must have exactly one hook (#{sz})") unless sz == 1
       send(sym).map{|funct| funct.(*params)}.first
     end
-    
+
     # Get the singular hook function
     define_method("#{sym}_hook_itself") do
       sz = send(sym).size

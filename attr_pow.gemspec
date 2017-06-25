@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
     ".rspec",
     ".ruby-version",
     ".semver",
+    ".travis.yml",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
