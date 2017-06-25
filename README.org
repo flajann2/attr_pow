@@ -12,7 +12,7 @@
   - [[#copyright][Copyright]]
 
 ** Synopsis
-   [[https://travis-ci.org/flajann2/attr_pow.svg?branch=master]]
+   [[https://travis-ci.org/flajann2/attr_pow][https://travis-ci.org/flajann2/attr_pow.svg?branch=master]]
 
    attr_pow gives you POWerful attributes. You may specify defaults,
    use attr_pow for hooks, and even define cloneability and queueability.
