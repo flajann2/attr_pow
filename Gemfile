@@ -6,7 +6,6 @@ gem "deep_dive", "~> 0"
 
 group :development do
   gem "awesome_print", "~> 1"
-  gem "rspec", "~> 3"
   gem "yard", "~> 0"
   gem "rdoc", "~> 3"
   gem "bundler", "~> 1"
@@ -18,4 +17,9 @@ group :development do
   gem "pry-remote", "~> 0"
   gem "pry-rescue", "~> 1"
   gem "pry-stack_explorer", "~> 0"
+end
+
+group :test, :development do
+  gem "rspec", "~> 3"
+  gem 'rake'
 end

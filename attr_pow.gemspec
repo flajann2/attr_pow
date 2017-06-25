@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib".freeze]
   s.authors = ["Fred Mitchell".freeze]
   s.date = "2017-06-25"
-  s.description = "attr_pow gives you smart attributes. You may sepecify defaults,\n   use attr_pow for hooks, and even define clonability and queuability.".freeze
+  s.description = "\n   attr_pow gives you smart attributes. You may sepecify defaults,\n   use attr_pow for hooks, and even define clonability and queuability.\n   ".freeze
   s.email = "fred.mitchell@gmx.de".freeze
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -36,6 +36,7 @@ Gem::Specification.new do |s|
   ]
   s.homepage = "http://github.com/flajann2/attr_pow".freeze
   s.licenses = ["MIT".freeze]
+  s.required_ruby_version = Gem::Requirement.new(">= 2.2.5".freeze)
   s.rubygems_version = "2.6.11".freeze
   s.summary = "smart attributes -- defaults, hooks, cloneability, queues! POW!!!".freeze
 
@@ -47,7 +48,6 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<queue_ding>.freeze, ["~> 0"])
       s.add_runtime_dependency(%q<deep_dive>.freeze, ["~> 0"])
       s.add_development_dependency(%q<awesome_print>.freeze, ["~> 1"])
-      s.add_development_dependency(%q<rspec>.freeze, ["~> 3"])
       s.add_development_dependency(%q<yard>.freeze, ["~> 0"])
       s.add_development_dependency(%q<rdoc>.freeze, ["~> 3"])
       s.add_development_dependency(%q<bundler>.freeze, ["~> 1"])
@@ -59,12 +59,13 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<pry-remote>.freeze, ["~> 0"])
       s.add_development_dependency(%q<pry-rescue>.freeze, ["~> 1"])
       s.add_development_dependency(%q<pry-stack_explorer>.freeze, ["~> 0"])
+      s.add_development_dependency(%q<rspec>.freeze, ["~> 3"])
+      s.add_development_dependency(%q<rake>.freeze, [">= 0"])
     else
       s.add_dependency(%q<semver2>.freeze, ["~> 3"])
       s.add_dependency(%q<queue_ding>.freeze, ["~> 0"])
       s.add_dependency(%q<deep_dive>.freeze, ["~> 0"])
       s.add_dependency(%q<awesome_print>.freeze, ["~> 1"])
-      s.add_dependency(%q<rspec>.freeze, ["~> 3"])
       s.add_dependency(%q<yard>.freeze, ["~> 0"])
       s.add_dependency(%q<rdoc>.freeze, ["~> 3"])
       s.add_dependency(%q<bundler>.freeze, ["~> 1"])
@@ -76,13 +77,14 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<pry-remote>.freeze, ["~> 0"])
       s.add_dependency(%q<pry-rescue>.freeze, ["~> 1"])
       s.add_dependency(%q<pry-stack_explorer>.freeze, ["~> 0"])
+      s.add_dependency(%q<rspec>.freeze, ["~> 3"])
+      s.add_dependency(%q<rake>.freeze, [">= 0"])
     end
   else
     s.add_dependency(%q<semver2>.freeze, ["~> 3"])
     s.add_dependency(%q<queue_ding>.freeze, ["~> 0"])
     s.add_dependency(%q<deep_dive>.freeze, ["~> 0"])
     s.add_dependency(%q<awesome_print>.freeze, ["~> 1"])
-    s.add_dependency(%q<rspec>.freeze, ["~> 3"])
     s.add_dependency(%q<yard>.freeze, ["~> 0"])
     s.add_dependency(%q<rdoc>.freeze, ["~> 3"])
     s.add_dependency(%q<bundler>.freeze, ["~> 1"])
@@ -94,6 +96,8 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<pry-remote>.freeze, ["~> 0"])
     s.add_dependency(%q<pry-rescue>.freeze, ["~> 1"])
     s.add_dependency(%q<pry-stack_explorer>.freeze, ["~> 0"])
+    s.add_dependency(%q<rspec>.freeze, ["~> 3"])
+    s.add_dependency(%q<rake>.freeze, [">= 0"])
   end
 end
 

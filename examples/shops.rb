@@ -3,13 +3,14 @@ require 'pp'
 
 class Foobar
   attr_pow :shopper, hooks: true
+  attr_pow :shop_queue, queue: true
 
   def customers &block
     shopper_add &block
   end
 
   def purchase stype
-    shopper_shops(stype)
+    shopper_hooks(stype)
   end
 end
 
@@ -24,5 +25,11 @@ fb.customers do |stype|
   "james_#{stype}"
 end
 
-pp fb.purchase :shirt
-pp fb.purchase :pants
+bag1 = fb.purchase :shirt
+bag2 = fb.purchase :pants
+
+pp bag1
+pp bag2
+
+fb.shop_queue << bag1 << bag2
+puts ""

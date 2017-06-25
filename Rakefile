@@ -25,11 +25,14 @@ Juwelier::Tasks.new do |gem|
   gem.homepage = "http://github.com/flajann2/attr_pow"
   gem.license = "MIT"
   gem.summary = %Q{smart attributes -- defaults, hooks, cloneability, queues! POW!!!}
-  gem.description = %Q{attr_pow gives you smart attributes. You may sepecify defaults,
-   use attr_pow for hooks, and even define clonability and queuability.}
+  gem.description = %Q{
+   attr_pow gives you smart attributes. You may sepecify defaults,
+   use attr_pow for hooks, and even define clonability and queuability.
+   }
   gem.email = "fred.mitchell@gmx.de"
   gem.authors = ["Fred Mitchell"]
   gem.version = s_version
+  gem.required_ruby_version = '>= 2.2.5'
 end
 
 Juwelier::RubygemsDotOrgTasks.new
