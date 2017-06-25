@@ -2,7 +2,7 @@ require 'attr_pow'
 require 'pp'
 
 class Foobar
-  attr_pow :shopper, shops: true
+  attr_pow :shopper, hooks: true
 
   def customers &block
     shopper_add &block
